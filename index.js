@@ -35,7 +35,7 @@ app.post('/',async(req, res)=>{
 })
 app.get('/evil',(req,res)=>{
     const flag = req.query.flag || null
-    const isAuth = flag == "dGhpcyBpcyBteSBmbGFnIHRva2VuIHRvIHZhbGlkYXRlIHVzZXIgYXV0aG9yaXphdGlvbg=="
+    const isAuth = flag[0] == "dGhpcyBpcyBteSBmbGFnIHRva2VuIHRvIHZhbGlkYXRlIHVzZXIgYXV0aG9yaXphdGlvbg=="
     if(isAuth){
         res.status(200).render("evil",{flag:"Farmer{0oh Br0, U aRe R3al Farmer}"})
     }else{
