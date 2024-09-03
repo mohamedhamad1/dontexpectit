@@ -24,7 +24,7 @@ app.post('/',async(req, res)=>{
         res.json({message:'WE WILL SEE IT',color:'red'})
     }else{
         const output = await Flag.findOne({flag:farmerStatus})
-        console.log(output);
+        console.log('test log', output);
         if(!output){
             res.json({message:'Hmmm, Can U Exploit it!?'})
         }else{
