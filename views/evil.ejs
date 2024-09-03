@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evil Here</title>
+    <script src="flagValidate.js">
+        function checkFlag() {
+            const flag = new URLSearchParams(window.location.search).get('flag');
+            if(!validation(flag)) {
+                document.getElementById('result').textContent = '403';
+            }
+        }
+        window.onload = checkFlag;
+    </script>
+</head>
+<body>
+    <h1><span id="result"><%= flag %></span></h1> 
+</body>
+</html>
