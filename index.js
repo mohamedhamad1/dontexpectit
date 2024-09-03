@@ -39,6 +39,6 @@ app.all('*',(req, res)=>{
     res.status(404).send('<h1>Congratulation you found the FLAG...<br>Hhhh Sorry i kidding you, 404 PageNotFound<br>Go to where you came \.\')</h1>')
 })
 
-app.listen(process.env.port,()=>{
+app.listen(6001||process.env.port, ()=>{
     console.log(`server run on http://localhost:${process.env.port}/`);
 }) 
