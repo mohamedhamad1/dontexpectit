@@ -27,7 +27,7 @@ app.post('/',async(req, res)=>{
         const output = await Flag.findOne({flag:farmerStatus})
         console.log('test log', output);
         if(!output){
-            res.json({message:'Hmmm, Can U Exploit it!?'})
+            res.json({message:`Invalid farmerStatus name:${farmerStatus}, MONGO CAN'T HANDLE IT`})
         }else{
             res.json(output)
         }
