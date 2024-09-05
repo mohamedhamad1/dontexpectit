@@ -46,6 +46,7 @@ app.get('/evil',(req,res)=>{
     }
 })
 app.get('/memo',(req, res)=>{
+    console.log(`GET ${req.url}\n`);
     res.sendFile(`${__dirname}/public/memo.png`)
 })
 
