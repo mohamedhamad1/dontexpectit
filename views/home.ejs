@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- this for utf-8 -->
     <meta charset="UTF-8">
+    <!-- this is for responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- this is ctf title -->
     <title>Farmer Home</title>
+    <!-- this is stylesheet for style.css -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img src="OIP.jpeg" alt="Downloading">
+    <!-- here is the home page image -->
+    <img src="home.jpeg" alt="Downloading">
+    <!-- note: read the question -->
     <p>If you win this challenge, it means you are real farmer <br> if not, you are half farmer <br>In both case the farmer run into your blood </p>
+    <!-- this is question -->
     <p>Before start capturing the flags, are you farmer?</p>
+    <!-- Farmer{It WaS 3Asy, R1GHT?} -->
     <button class="farmerButton" data-farmer="full">Yes, I'm a farmer</button>
+    <!-- Oops you are not full farmer -->
     <button class="farmerButton" data-farmer="half">Hmm, I'm half farmer</button>
+    <!-- the result reflect here -->
     <p id="farmerMessage"></p>
+    <!-- don't open this js file -->
     <script src="script.js"></script>
 </body>
-<!-- Farmer{It WaS 3Asy, R1GHT?} -->
 </html>

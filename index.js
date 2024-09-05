@@ -29,27 +29,31 @@ app.post('/',async(req, res)=>{
     }else{
         const output = await Flag.findOne({flag:farmerStatus})
         if(!output){
-            res.json({message:`Invalid farmerStatus: "${farmerStatus}" ... MONGODB CAN'T HANDLE IT`})
+            res.status(400).json({message:`Invalid farmerStatus: "${farmerStatus}" ... MONGO CAN'T HANDLE IT`})
         }else{
-            res.json(output)
+            res.status(200).json(output)
         }
     }
 })
 app.get('/evil',(req,res)=>{
     console.log(`GET ${req.url}\n${JSON.stringify(req.body)}\n`);
-    
-    const flag = req.query.flag || []
-    const isAuth = flag[0] == "dGhpcyBpcyBteSBmbGFnIHRva2VuIHRvIHZhbGlkYXRlIHVzZXIgYXV0aG9yaXphdGlvbg=="
+    const token = req.query.token || []
+    const isAuth = token[0] == "dGhpcyBpcyBteSBmbGFnIHRva2VuIHRvIHZhbGlkYXRlIHVzZXIgYXV0aG9yaXphdGlvbg=="
     if(isAuth){
         res.status(200).render("evil",{flag:"Farmer{0oh Br0, U aRe R3al Farmer}"})
     }else{
         res.status(403).render("evil",{flag:"Code:403 Forbidden, you are unauthorized to rech that"})
     }
 })
+app.get('/memo',(req, res)=>{
+    res.sendFile(`${__dirname}/public/memo.png`)
+})
+
 app.all('*',(req, res)=>{    
     res.status(404).send('<h1>Congratulation you found the FLAG...<br>Hhhh Sorry i kidding you, 404 PageNotFound<br>Go to where you came \.\')</h1>')
 })
+
  
 app.listen(6001||process.env.port, ()=>{
     console.log(`server run on http://localhost:${process.env.port}/`);
-})  
+})
